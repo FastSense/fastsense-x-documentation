@@ -1,0 +1,14 @@
+site_name: Test of the documantation tools
+nav:
+  - Home: index.md
+  - Quickstart: quick-start.md
+  - About: about.md
+  - Specification: spec.md
+
+theme:
+  name: readthedocs
+  palette:
+    primary: brown
+
+markdown_extensions:
+  - attr_list
