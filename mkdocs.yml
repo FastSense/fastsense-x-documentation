@@ -4,6 +4,7 @@ nav:
   - Quickstart: quick-start.md
   - About: about.md
   - Specification: spec.md
+  - DocsHowto: docs-howto.md
 
 theme:
   name: readthedocs
