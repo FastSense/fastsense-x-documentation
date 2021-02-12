@@ -10,7 +10,7 @@ It is shipped as ready to use device with software examples of running ROS algor
 
 ![](./assets/img/FastSenseX.png)
 
-Possible configuration below consists of Intel CPU coupled with six edge AI inference devices: Intel Myriad X VPU and Google Coral Edge TPU.
+Possible configuration below consists of Intel CPU coupled with six edge AI inference devices including Intel Myriad X VPUs and Google Coral Edge TPUs.
 
 ![](./assets/img/FastSenseX_BlockDiagram.png)
 
