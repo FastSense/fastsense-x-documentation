@@ -1,4 +1,4 @@
-site_name: Test of the documantation tools
+site_name: Edge AI x86 Computer for Robots
 nav:
   - Home: index.md
   - Quickstart: quick-start.md
