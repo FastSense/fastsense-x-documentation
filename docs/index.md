@@ -1,4 +1,4 @@
-# Welcome to Fast Sense X documentation
+# Fast Sense X 
 
 ## What is it?
 

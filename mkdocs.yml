@@ -1,9 +1,9 @@
 site_name: Edge AI x86 Computer for Robots
 nav:
   - Home: index.md
-  - Quickstart: quick-start.md
-  - About: about.md
-  - Specification: spec.md
+  - Getting Started Guide: quick-start.md
+  - Software Guide: 
+    - Converting models: software-guide/converting.md
   - DocsHowto: docs-howto.md
 
 theme:
