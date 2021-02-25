@@ -1,61 +1,83 @@
-# Bring Up
+# Getting Started
 
-Check you have our FastSenseX platform, Corals, Myriads and WIFI...
+## Bring Up
 
-# Docker setup
+Perform some easy steps for run [Fast Sense X Robotics AI Platform](https://www.fastsense.tech/robotics_ai) (all required accessories are included).
 
-Install Docker from the [instructions](https://docs.docker.com/engine/install/ubuntu/).
+  1. Connect all required devices:
+    - **monitor** via miniDP-to-DP adapter;
+    - **keyboard** via micro USB B 2.0 to USB A 2.0 jack cable;
+    - **mouse** via micro USB B 2.0 to USB A 2.0 jack cable;
+    - **usb-wifi stick** via micro USB B 3.0 to USB A 3.0 jack adapter;
+    - **power supply** via adapter cable. Power supply should be rated for >30W (for example 12V 3A). Input voltage 7V to 35V are supported.
+  2. Wait for a couple of minutes for system boot.
+  3. Log in to the system. Default credentials are robot/fastsense (login/password).
+  4. Find the WiFi network you are interested in among the available ones and connect to it.
 
-Pull our docker image:
+You are ready to continue!
+
+## Docker setup
+
+By default, [Docker](https://docs.docker.com/engine/install/ubuntu/) is already installed on the operating system.
+
+It is highly recommended to run everything inside a [docker container](https://hub.docker.com/r/fastsense/ros_ai) from our [Docker Hub](https://hub.docker.com/u/fastsense).
+
+The container can be started with the following command:
+
 ```
-docker pull fastsense/ros_ai
+docker run -it -v /dev/:/dev/ --net=host --privileged fastsense/ros_ai /bin/bash
 ```
 
-> Если расширять данный шаг, то можно повзаимоствовать [отcюда](https://github.com/FastSense/edge_ai_demo/blob/main/docker/README.md).
+## Run your first demo
 
-# Run your first demo
-
-Manually crate a container:
-```
-docker run -it -v / dev /: / dev / --net = host --privileged fastsense / ros_ai / bin / bash
-```
-
-Upgrade [NNIO](https://nnio.readthedocs.io/en/latest/):
+Update [NNIO](https://nnio.readthedocs.io/en/latest/):
 ```
 pip3 install -U nnio
 ```
 
-## The simplest example
-
+To get started, download the test image:
 ```
-# Простейший пример инференса на примере ssd mobilenet на сохранённой картинке
+wget https://habrastorage.org/webt/bs/26/rf/bs26rf28a9ze_noyyw5jlcylas8.jpeg -O input.jpeg
+```
 
-# Вставить простой пример будет правильнее, т. к. для запуска Edge AI Demo сразу
-# нужно будет сделать слишком много шагов для получения первого результата
-# (Подключить Realsense, например), а также иметь набор из пяти девайсов.
+Create a simple python script:
 
-import nnio
+```python
 import cv2
+import nnio
 
-# Load model
-model = nnio.zoo.edgetpu.detection.SSDMobileNet(device='TPU') # TBD Framework description
+# Load image
+img = cv2.imread('./input.jpeg')
 
-# Get preprocessing function
-preproc = model.get_preprocessing()
-
-input_image = cv2.imread('TBD path')
+# Load model (For EdgeTPU)
+model = nnio.zoo.edgetpu.detection.SSDMobileNet(device='TPU')
 
 # Preprocess your numpy image
-image = preproc(image_rgb)
+preproc = model.get_preprocessing()
+img_prep = preproc(img)
 
 # Make prediction
-boxes = model(image)
+boxes = model(img_prep)
 
-# TBD some text output with cv2.imshow(...)
+for box in boxes:
+    box.draw(input_img)
+    print('"%s" detected!' % box.label)
+
+# Save output image
+cv2.imwrite('./output.jpeg')
 ```
+
+Now you can see the image `output.jpeg` with the bounding boxes drawn on it, as well as the output in the terminal of the objects found on the input image.
+
+If you want to run inference on another device, replace the model initialization line:
+
+  * `model = nnio.zoo.openvino.detection.SSDMobileNetV2(device='MYRIAD')` for OpenVINO framework;
+  * `model = nnio.zoo.onnx.detection.SSDMobileNetV1()` for ONNX framework.
 
 ## What's next?
 
 Try to run our [__Edge AI Demo__](https://github.com/FastSense/edge_ai_demo), in which five neural networks are launched in parallel in [ROS](http://wiki.ros.org/Documentation) to process the video stream from two cameras.
 
-Look at the ready to launch on the edge devices networks from the [__NNIO Model Zoo__](https://nnio.readthedocs.io/en/latest/zoo.html).
+Some popular models are already built in [nnio](https://nnio.readthedocs.io/). Look at the ready-to-use on the edge devices networks from the [__NNIO Model Zoo__](https://nnio.readthedocs.io/en/latest/zoo.html).
+
+Finally, you can convert your models to run on devices using [Converting models guide](./software-guide/converting.md). 
