@@ -1,0 +1,14 @@
+.center {
+    display: block;
+    margin: 0 auto;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 2em;
+}
+
+td {
+    padding-top: .5em;
+    padding-bottom: .5em;
+}
