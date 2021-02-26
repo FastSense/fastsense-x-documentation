@@ -28,7 +28,7 @@ Possible configuration below consists of Intel CPU coupled with six edge AI infe
 | Power Consumption   | less then 24W TDP (CPU/GPU - 12W, Edge AI - 11W)                                                                                                                                                                                                                                                                                                                       |
 | Size                | 30 x 55 x 84 mm (1.18” x 2.17” x 3.31”) incl. heat-spreaders
 
-_*TBD table star._
+_*depends on particular part-number._
 
 ## Kit contents
 

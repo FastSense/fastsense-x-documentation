@@ -7,6 +7,8 @@ Tests are grouped by interface type: [UART](#test-uart), [USB](#test-usb), [PCIe
 
 Platform has 6 COM(UART) ports, 8 USB ports, 4 PCIe ports (1 port per each M type M.2 connector and 2 ports routed to E type M.2 connector).
 
+![](../assets/img/interfaces.png)
+
 ## Test UART
 
 Special UART loopback cable are included with FastSense X Platrorm for this test.
@@ -78,5 +80,5 @@ chmod +x ./pcie_test.sh
 
 Follow these steps to complete:
 
-  1. run the script `sudo ./pci_test.sh`;
+  1. run the script: `sudo ./pcie_test.sh`;
   2. check script output for the available devices.
