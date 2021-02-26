@@ -1,10 +1,16 @@
-site_name: Edge AI x86 Computer for Robots
+site_name: Fast Sense X Robotics AI Platform
 nav:
   - Home: index.md
-  - Getting Started Guide: quick-start.md
-  - Software Guide: 
+  - Getting Started: quick-start.md
+  - Software Guide:
+    - Table demo: software-guide/table-demo.md
+    - NNIO: software-guide/nnio.md
     - Converting models: software-guide/converting.md
-  - DocsHowto: docs-howto.md
+  - Hardware Guide:
+    - UART how-to: hardware-guide/com-port-howto.md
+    - Interface tests: hardware-guide/interface-tests.md
+    - Telemetry: hardware-guide/telemetry.md
+    - Console redirection: hardware-guide/console-redir.md
 
 theme:
   name: readthedocs
@@ -13,3 +19,7 @@ theme:
 
 markdown_extensions:
   - attr_list
+  - admonition
+
+extra_css:
+    - 'stylesheets/extra.css'
