@@ -22,5 +22,5 @@ jobs:
     - name: Lint changelog file
       uses: docker://avtodev/markdown-lint:v1 # fastest way
       with:
-        config: './.github/workflows/config.yml'
+        config: './.github/markdown_config.yml'
         args: './'
