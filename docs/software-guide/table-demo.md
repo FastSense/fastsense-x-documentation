@@ -20,7 +20,7 @@ so you can easily get access to the models inference results from within ROS eco
 
 For each video stream, image segmentation is performed using a
 [DeepLabV3](https://github.com/tensorflow/models/tree/master/research/deeplab),
-as well as object detection using a 
+as well as object detection using a
 [SSD_Mobilenet_v2](https://aihub.cloud.google.com/p/products%2F79cd5d9c-e8f3-4883-bf59-31566fa99e49),
 and for each detected person, its identifier is determined using
 [ReID OsNet](https://github.com/KaiyangZhou/deep-person-reid).
