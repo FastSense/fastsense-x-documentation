@@ -22,7 +22,5 @@ jobs:
     - name: Lint changelog file
       uses: docker://avtodev/markdown-lint:v1 # fastest way
       with:
-        #rules: '/lint/rules/changelog.js'
-        #config: '/lint/config/changelog.yml'
+        config: '/.github/workflow/config.yml'
         args: './'
-        #ignore: './one_file.md ./another_file.md' # multiple files must be separated with single space
