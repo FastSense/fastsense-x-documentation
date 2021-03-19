@@ -4,13 +4,14 @@
 
 It supports running models on CPU as well the edge devices present on platform:
 
-  * [Google Coral Edge TPU](https://coral.ai/)
-  * Intel integrated GPUs
-  * [Intel Myriad VPU](https://www.intel.ru/content/www/ru/ru/products/processors/movidius-vpu/movidius-myriad-x.html)
+* [Google Coral Edge TPU](https://coral.ai/)
+* Intel integrated GPUs
+* [Intel Myriad VPU](https://www.intel.ru/content/www/ru/ru/products/processors/movidius-vpu/movidius-myriad-x.html)
 
 For each device there exists an own library and a model format. We wrap all those in a single well-defined python package.
 
 Look at this simple example:
+
 ```python
 import nnio
 

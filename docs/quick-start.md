@@ -24,19 +24,21 @@ It is highly recommended to run everything inside a [docker container](https://h
 
 The container can be started with the following command:
 
-```
+```bash
 docker run -it -v /dev/:/dev/ --net=host --privileged fastsense/ros_ai /bin/bash
 ```
 
 ## Run your first demo
 
 Update [NNIO](https://nnio.readthedocs.io/en/latest/):
-```
+
+```bash
 pip3 install -U nnio
 ```
 
 To get started, download the test image:
-```
+
+```bash
 wget https://habrastorage.org/webt/bs/26/rf/bs26rf28a9ze_noyyw5jlcylas8.jpeg -O input.jpeg
 ```
 
@@ -71,8 +73,8 @@ Now you can see the image `output.jpeg` with the bounding boxes drawn on it, as 
 
 If you want to run inference on another device, replace the model initialization line:
 
-  * `model = nnio.zoo.openvino.detection.SSDMobileNetV2(device='MYRIAD')` for OpenVINO framework;
-  * `model = nnio.zoo.onnx.detection.SSDMobileNetV1()` for ONNX framework.
+* `model = nnio.zoo.openvino.detection.SSDMobileNetV2(device='MYRIAD')` for OpenVINO framework;
+* `model = nnio.zoo.onnx.detection.SSDMobileNetV1()` for ONNX framework.
 
 ## What's next?
 
@@ -80,4 +82,4 @@ Try to run our [__Edge AI Demo__](https://github.com/FastSense/edge_ai_demo), in
 
 Some popular models are already built in [nnio](https://nnio.readthedocs.io/). Look at the ready-to-use on the edge devices networks from the [__NNIO Model Zoo__](https://nnio.readthedocs.io/en/latest/zoo.html).
 
-Finally, you can convert your models to run on devices using [Converting models guide](./software-guide/converting.md). 
+Finally, you can convert your models to run on devices using [Converting models guide](./software-guide/converting.md).

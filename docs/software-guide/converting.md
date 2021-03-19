@@ -31,7 +31,6 @@ This will create files `model_fp16.bin` and `model_fp16.xml` in your working dir
 
 To use `model_optimizer` with PyTorch, first export the model to onnx as shown [here](https://pytorch.org/tutorials/advanced/super_resolution_with_onnxruntime.html). With TensorFlow it can be used directly as shown [here](https://docs.openvinotoolkit.org/latest/openvino_docs_MO_DG_prepare_model_convert_model_Convert_Model_From_TensorFlow.html), or agian through onnx proxy, using [tf2onnx](https://github.com/onnx/tensorflow-onnx).
 
-
 ## Converting to tflite
 
 To use Google Coral TPU, one needs to export the model to the tflite format. It is a procedure which requires multiple steps:

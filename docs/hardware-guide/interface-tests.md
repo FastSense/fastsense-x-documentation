@@ -22,7 +22,7 @@ pip3 install pyserial
 
 Download [`loopback_test.py`](https://github.com/FastSense/fastsensex_hw_tests/blob/master/loopback_test.py) script:
 
-```
+```bash
 wget https://raw.githubusercontent.com/FastSense/fastsensex_hw_tests/master/loopback_test.py
 ```
 
@@ -42,13 +42,13 @@ Use 3.0 USB Flash drive for this test, otherwise results will be lower.
 
 Install missing dependencies if any. Download [`usb_check.sh`](https://github.com/FastSense/fastsensex_hw_tests/blob/master/usb_check.sh) script:
 
-```
+```bash
 wget https://raw.githubusercontent.com/FastSense/fastsensex_hw_tests/master/usb_check.sh
 ```
 
 Add appropriate rights to this file:
 
-```
+```bash
 chmod +x ./usb_check.sh
 ```
 
@@ -68,13 +68,13 @@ This test allows you to check that all 4 PCIe devices are visible on PCIe bus.
 
 Install missing dependencies if any. Download [`pcie_test.sh`](https://github.com/FastSense/fastsensex_hw_tests/blob/master/pcie_test.sh) script:
 
-```
+```bash
 wget https://raw.githubusercontent.com/FastSense/fastsensex_hw_tests/master/pcie_test.sh
 ```
 
 Add appropriate rights to this file:
 
-```
+```bash
 chmod +x ./pcie_test.sh
 ```
 

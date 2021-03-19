@@ -24,24 +24,24 @@ COM2 is equal to COM0 on SYS board, COM3 is equal to COM1 on SYS board (BIOS ver
 **5. Now you can see BIOS in terminal window.**
 
 **6. Сonfigure LUbuntu for system console.**
-     
+
 Check that the COM port is working (ttyS6 - COM0, ttyS7 - COM1):
 
-```
+```bash
 sudo chmod o+rw /dev/ttyS6
 echo '123' > /dev/ttyS6
 ```
 
 Create conf file for GRUB:
 
-```
+```bash
 sudo mkdir /etc/default/grub.d
 sudoedit /etc/default/grub.d/serial.cfg
 ```
 
 Add the required `ttyS*`:
 
-```
+```bash
 GRUB_CMDLINE_LINUX="console=tty1 console=ttyS6,115200n8"
 GRUB_TERMINAL_INPUT="console serial"
 GRUB_TERMINAL_OUTPUT="gfxterm serial"
@@ -50,13 +50,13 @@ GRUB_SERIAL_COMMAND="serial --unit=0 --speed=115200 --stop=1"
 
 Update GRUB configuration:
 
-```
+```bash
 sudo update-grub
 ```
 
 Enable the console on the desired `ttyS*` at system startup and reboot:
 
-```
+```bash
 sudo systemctl enable getty@ttyS6
 reboot
 ```
@@ -67,19 +67,19 @@ reboot
 
 Turn off console service:
 
-```
+```bash
 sudo systemctl enable getty@ttyS4
 ```
 
 Delete config:
 
-```
+```bash
 sudoedit /etc/default/grub.d/serial.cfg
 ```
 
 Update GRUB config and reboot:
 
-```
+```bash
 sudo update-grub
 sudo reboot
 ```
