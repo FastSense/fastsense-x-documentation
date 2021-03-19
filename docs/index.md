@@ -4,7 +4,7 @@
 
 [Fast Sense X Robotics AI Platform](https://www.fastsense.tech/robotics_ai) is a powerful on-board computer bringing scalable Edge AI capabilities to mobile robotics.
 
-It consists of single board COM Express module with Intel CPU, set of edge AI accelerators to inference several neural nets on-board in real time and has numerous hardware interfaces to robotic sensors and actuators. AI accelerators are connected using M.2 PCIe interface and can be scaled depending on the task. 
+It consists of single board COM Express module with Intel CPU, set of edge AI accelerators to inference several neural nets on-board in real time and has numerous hardware interfaces to robotic sensors and actuators. AI accelerators are connected using M.2 PCIe interface and can be scaled depending on the task.
 
 It is shipped as ready to use device with software examples of running ROS algorithms with integrated neural nets meaningful for robotic applications running in isolated Docker containers.
 
