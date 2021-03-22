@@ -20,10 +20,10 @@ sudo apt-get install --no-install-recommends python3-pip
 pip3 install pyserial
 ```
 
-Download [`loopback_test.py`](https://github.com/FastSense/fastsensex_hw_tests/blob/master/loopback_test.py) script:
+Go to the folder with  [`loopback_test.py`](https://github.com/FastSense/fastsensex_hw_tests/blob/master/loopback_test.py) script:
 
 ```bash
-wget https://raw.githubusercontent.com/FastSense/fastsensex_hw_tests/master/loopback_test.py
+cd ~/fastsense/fastsensex_hw_tests/interfaces
 ```
 
 Follow these steps to complete:
@@ -40,10 +40,10 @@ Follow these steps to complete:
 
 Use 3.0 USB Flash drive for this test, otherwise results will be lower.
 
-Install missing dependencies if any. Download [`usb_check.sh`](https://github.com/FastSense/fastsensex_hw_tests/blob/master/usb_check.sh) script:
+Install missing dependencies if any. Go to the folder with [`usb_check.sh`](https://github.com/FastSense/fastsensex_hw_tests/blob/master/usb_check.sh) script:
 
 ```bash
-wget https://raw.githubusercontent.com/FastSense/fastsensex_hw_tests/master/usb_check.sh
+cd ~/fastsense/fastsensex_hw_tests/interfaces
 ```
 
 Add appropriate rights to this file:
@@ -66,10 +66,10 @@ Repeat steps 1-3 for all available USB ports.
 
 This test allows you to check that all 4 PCIe devices are visible on PCIe bus.
 
-Install missing dependencies if any. Download [`pcie_test.sh`](https://github.com/FastSense/fastsensex_hw_tests/blob/master/pcie_test.sh) script:
+Install missing dependencies if any. Go to the folder with [`pcie_test.sh`](https://github.com/FastSense/fastsensex_hw_tests/blob/master/pcie_test.sh) script:
 
 ```bash
-wget https://raw.githubusercontent.com/FastSense/fastsensex_hw_tests/master/pcie_test.sh
+cd ~/fastsense/fastsensex_hw_tests/interfaces
 ```
 
 Add appropriate rights to this file:
