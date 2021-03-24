@@ -22,22 +22,28 @@ By default, [Docker](https://docs.docker.com/engine/install/ubuntu/) is already 
 
 It is highly recommended to run everything inside a [docker container](https://hub.docker.com/r/fastsense/ros_ai) from our [Docker Hub](https://hub.docker.com/u/fastsense).
 
+```bash
+docker pull fastsense/ros_ai
+```
+
 The container can be started with the following command:
 
-```
-docker run -it -v /dev/:/dev/ --net=host --privileged fastsense/ros_ai /bin/bash
+```bash
+docker run -it -v /dev/:/dev/ -v /home/robot/docker_workspace:/home/user/workspace --net=host --privileged fastsense/ros_ai /bin/bash
 ```
 
 ## Run your first demo
 
 Update [NNIO](https://nnio.readthedocs.io/en/latest/):
-```
+
+```bash
 pip3 install -U nnio
 ```
 
 To get started, download the test image:
-```
-wget https://habrastorage.org/webt/bs/26/rf/bs26rf28a9ze_noyyw5jlcylas8.jpeg -O input.jpeg
+
+```bash
+wget https://habrastorage.org/webt/bs/26/rf/bs26rf28a9ze_noyyw5jlcylas8.jpeg -O ~/workspace/input.jpeg
 ```
 
 Create a simple python script:
@@ -47,7 +53,7 @@ import cv2
 import nnio
 
 # Load image
-img = cv2.imread('./input.jpeg')
+img = cv2.imread('/home/user/workspace/input.jpeg')
 
 # Load model (For EdgeTPU)
 model = nnio.zoo.edgetpu.detection.SSDMobileNet(device='TPU')
@@ -60,19 +66,19 @@ img_prep = preproc(img)
 boxes = model(img_prep)
 
 for box in boxes:
-    box.draw(input_img)
+    box.draw(img)
     print('"%s" detected!' % box.label)
 
 # Save output image
-cv2.imwrite('./output.jpeg')
+cv2.imwrite('/home/user/workspace/output.jpeg', img)
 ```
 
 Now you can see the image `output.jpeg` with the bounding boxes drawn on it, as well as the output in the terminal of the objects found on the input image.
 
 If you want to run inference on another device, replace the model initialization line:
 
-  * `model = nnio.zoo.openvino.detection.SSDMobileNetV2(device='MYRIAD')` for OpenVINO framework;
-  * `model = nnio.zoo.onnx.detection.SSDMobileNetV1()` for ONNX framework.
+* `model = nnio.zoo.openvino.detection.SSDMobileNetV2(device='MYRIAD')` for OpenVINO framework;
+* `model = nnio.zoo.onnx.detection.SSDMobileNetV1()` for ONNX framework.
 
 ## What's next?
 
@@ -80,4 +86,4 @@ Try to run our [__Edge AI Demo__](https://github.com/FastSense/edge_ai_demo), in
 
 Some popular models are already built in [nnio](https://nnio.readthedocs.io/). Look at the ready-to-use on the edge devices networks from the [__NNIO Model Zoo__](https://nnio.readthedocs.io/en/latest/zoo.html).
 
-Finally, you can convert your models to run on devices using [Converting models guide](./software-guide/converting.md). 
+Finally, you can convert your models to run on devices using [Converting models guide](./software-guide/converting.md).

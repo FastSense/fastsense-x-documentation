@@ -4,7 +4,7 @@
 
 In order to start communicating with serial ports, you need to add the user into the `tty` and `dialout` groups.
 
-```
+```bash
 groups username
 sudo usermod -a -G tty username
 sudo usermod -a -G dialout username
@@ -16,13 +16,13 @@ There is *stty* util in lubuntu, which allows you to interact with serials.
 
 Find out port parameters:
 
-```
+```bash
 stty -a -F /dev/ttyS*
 ```
 
 Set default port speed:
 
-```
+```bash
 stty -F /dev/ttyS* 115200
 ```
 
